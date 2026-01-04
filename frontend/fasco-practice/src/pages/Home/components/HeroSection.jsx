@@ -23,7 +23,7 @@ const HeroSection = () => {
     
     return (
             <>
-                 <section className='first-home-container'>
+                 <section id='secction-hero' className='first-home-container'>
                     <div className='section-1'>
                         <div className='image-container' >
                             <img className='photo1' src= { photo1 } alt="Placeholder" />

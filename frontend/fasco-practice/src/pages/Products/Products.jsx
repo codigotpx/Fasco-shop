@@ -30,7 +30,7 @@ const Products = () => {
 
         {visibleCount < products.length && (
             <div className="load-more-wrapper">
-                <Button className="btn-view-more"  onClick={handleMore} variant="primary">View New</Button>
+                <Button onClick={handleMore} variant="load-more">View New</Button>
             </div>
         )}
 
