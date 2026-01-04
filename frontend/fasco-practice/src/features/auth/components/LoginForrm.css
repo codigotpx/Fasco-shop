@@ -1,0 +1,80 @@
+
+.section-api-google {
+    display: flex;
+    gap: 10px;
+}
+
+.img-login {
+    max-width: 600px;
+    height: auto;
+    margin: auto auto;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 30px;
+}
+
+.logos-login-google {
+    width: 20px;
+}
+
+.button-login-api-google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-button-login{
+    font-size: 10px;
+    margin: 0;
+    line-height: 13px;
+}
+
+.text-or {
+    margin: 50px auto;
+}
+
+.input-login-form {
+    border: none;
+    padding: 5px;
+    border-bottom: 1px solid #9D9D9D;
+    place-content: #9D9D9D;
+}
+
+.input-login-form:hover {
+    border-bottom: 1px solid #9D9D9D;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.button-login-sign-in {
+    margin: 0;
+}
+
+.link-to-register-now {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#5B86E5;
+    border: 1px solid #5B86E5;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.link-forget-password {
+    display: flex;
+    justify-content: end;
+    color: #5B86E5;
+    font-size: 13px;
+}
+
+.error {
+    color: #b32e1f;
+}

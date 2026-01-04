@@ -1,0 +1,14 @@
+.container-product {
+    width: 100%;
+    flex-grow: 1;
+}
+
+.load-more-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.btn-view-more {
+    display: flex;
+}
