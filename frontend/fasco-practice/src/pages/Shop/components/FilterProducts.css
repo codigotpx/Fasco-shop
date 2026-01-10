@@ -1,0 +1,96 @@
+.container-filter-products {
+   width: 250px;
+   height: auto;
+   background-color: #fff;
+   overflow-y: auto;
+}
+
+.title-filter {
+    font-size: 15px;
+}
+
+.container-section-filters {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container-section-filters .button-size-filter {
+    padding: 8px 15px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #8A8A8A;
+    cursor: pointer
+}
+
+.container-filter-products .button-color-filter {
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 100px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.container-filter-products .container-price-filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-filter-products .label-filter {
+    font-size: 15px;
+    color: #8A8A8A;
+    margin: 0 5px 20px 0;
+}
+
+.container-filter-products .container-open-close-filters {
+    cursor: pointer;
+}
+
+.container-filter-products .container-open-close-filters .spam-filter-open-close {
+    font-size: 15px;
+    color: #8A8A8A;
+}
+
+.container-filter-products .button-brand-filter {
+    border: none;
+    background-color: #fff;
+    color: #8A8A8A;
+    cursor: pointer;
+}
+
+
+.container-filter-products .button-brand-filter:hover {
+    text-decoration: underline;
+}
+
+.container-filter-products .container-collection-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.container-filter-products .container-collection-filter .label-collection-filter {
+    font-size: 15px;
+    color: #8A8A8A;
+}
+
+.container-filter-products .label-radio-filter {
+    cursor: pointer;
+}
+
+.container-filter-products .button-tags-filter {
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    color: #8A8A8A;
+    margin: 0 5px;
+}
+
+.container-filter-products .button-tags-filter:hover {
+    text-decoration: underline;
+}

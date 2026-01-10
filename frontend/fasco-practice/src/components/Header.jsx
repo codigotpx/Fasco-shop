@@ -1,8 +1,12 @@
 import '../styles/Header.css'
+import { useLocation } from 'react-router'
 import Navbar from './Navbar'
+import NavbarShop from '../pages/Shop/components/NavbarShop.jsx'
 import { useState, useEffect } from 'react'
 
 const Header = () => {
+
+    const Location = useLocation()
 
     const [ isHidden, setIsHidden ] = useState(false)
     const [ lasScrollY, setLasCrollY ] = useState(0)
@@ -37,9 +41,7 @@ const Header = () => {
     return (
         <header className={`header-site ${isHidden ? 'header--hidden' : ''} ${isScrolled ? 'header--scrolled' : ''}`}>
             <h1 className='logo'>FASCO</h1>
-            <div className='navbar-container'>
-                <Navbar />
-            </div>
+                {Location.pathname === '/shop' ? <NavbarShop/> : <Navbar/>}
         </header>
     )
 }

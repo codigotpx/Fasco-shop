@@ -1,0 +1,15 @@
+.section-shop-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-content {
+    display: flex;
+    width: 100%;
+}
+
+.container-products {
+    width: 100%;
+}

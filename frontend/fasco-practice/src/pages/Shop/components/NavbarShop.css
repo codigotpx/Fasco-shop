@@ -1,0 +1,30 @@
+.navbar-shop-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.navbar {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    margin: 0 auto;
+}
+.navbar-ul-option {
+    display: flex;
+}
+
+.buttom-navbar-option{
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.img-navbar-option {
+    width: 16px;
+    height: 16px;
+}

@@ -8,6 +8,7 @@ import './index.css'
 import Login from './pages/auth/Login.jsx'
 import Register from './pages/auth/Register.jsx'
 import ForgetPassword from './pages/auth/ForgetPassword.jsx'
+import Shop from './pages/Shop/Shop.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,16 @@ const router = createBrowserRouter([
         index: true,
         element: <Home/>,
       },
+    ]
+  },
+  {
+    path: '/shop',
+    element: <MainLayout/>,
+    children: [
+      {
+        index: true,
+        element: <Shop/>
+      }
     ]
   },
   {

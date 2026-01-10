@@ -27,7 +27,7 @@ const SectionDeals = () => {
                     <Button className='btn-section-deals' variant='primary'>Buy Now</Button>
                     <section className='section-counter-container'>
                         <p className='text-counter-container' >Hurry, Before it's Too Late!</p>
-                        <CountDown targetDate="2026-01-01T00:00:00" />
+                        <CountDown targetDate="2026-12-01T00:00:00" />
                     </section>
                 </div>
 
