@@ -1,6 +1,7 @@
 import './Shop.css';
 import FilterProducts from './components/FilterProducts';
 import Products from '../Products/Products.jsx'
+import SubscribeSection from '../../pages/Home/components/SubscribeSection.jsx'
 
 const Shop = () => {
  return (
@@ -12,6 +13,7 @@ const Shop = () => {
                 <Products />
             </div>
         </div>  
+        <SubscribeSection />
     </section>
  )
 }
