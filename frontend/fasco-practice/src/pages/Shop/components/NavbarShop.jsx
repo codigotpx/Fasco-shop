@@ -2,10 +2,13 @@
 import { Link } from 'react-router'
 import './NavbarShop.css'
 import { useLocation } from 'react-router'
+import { useCart } from './CartContext.jsx'
 
 const NavbarShop = () => {
     const Location = useLocation()
+    const { setIsCartOpen, cart } = useCart()
 
+    
     return (
         <div className='navbar-shop-container'>
             <nav className='navbar'>
@@ -19,7 +22,13 @@ const NavbarShop = () => {
                     <li><button className='buttom-navbar-option'><img className='img-navbar-option' src="/search.svg" alt="" /></button></li>
                     <li><button className='buttom-navbar-option'><img className='img-navbar-option' src="/account.svg" alt="" /></button></li>
                     <li><button className='buttom-navbar-option'><img className='img-navbar-option' src="/wishlist.svg" alt="" /></button></li>
-                    <li><button className='buttom-navbar-option'><img className='img-navbar-option' src="/icon-shopping-car.svg" alt="icon of button to search especific products" /></button></li>
+                    <li><button 
+                            onClick={() => setIsCartOpen(true)}
+                            className='buttom-navbar-option-cart'><img className='img-navbar-option' src="/icon-shopping-car.svg" 
+                            alt="icon of button to search especific products" />
+                            {cart.length !== 0 ? <span className='span-to-number-cart' >{`${cart.length}`}</span> : ''}
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>

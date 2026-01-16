@@ -9,6 +9,8 @@ import mastercard from '../../../assets/mastercard.png'
 import visa from '../../../assets/visa.png'
 import SectionDeals from '../../Home/components/SectionDeals.jsx'
 import SubscribeSection from '../../Home/components/SubscribeSection.jsx'
+import CartDrawer from './CartDrawer.jsx'
+import { useCart } from './CartContext.jsx'
 
 const SectionProduct = () => {
 
@@ -19,9 +21,11 @@ const SectionProduct = () => {
     const [ size, setSize ] = useState("M")
     const [ addProduct, setAddProduct ] = useState(0)
 
+    const { isCartOpen, setIsCartOpen, cart, setCart } = useCart()
+
     const sizes =  [ "M" ,"L", "XL", "XXL"]
 
-    useEffect(() => {
+    useEffect( () =>  {
         fetch(`https://dummyjson.com/products/${id}`)
             .then(res => res.json())
             .then(setProduct)
@@ -39,8 +43,34 @@ const SectionProduct = () => {
         } 
         
     }
+    
+    console.log(product)
 
+    const addCartProduct = ( product ) => {
+        const existingProduct = cart.find(item => item.id === product.id)
 
+        if (addProduct === 0) {
+            alert('You should add at least one product')
+            return
+        }
+
+        if (existingProduct) {
+            const updatedProduct = cart.map(item => 
+                item.id === product.id ?
+                    {...item, quantity: addProduct + item.quantity } :
+                    item
+            )
+
+            setCart(updatedProduct)
+            setIsCartOpen(true)
+        } else {
+            const productCart = {
+                ...product,
+                quantity: addProduct
+            }
+            setCart([...cart, productCart])
+        }  
+    }
 
     if (loading) return <p>Loading...</p>
     if (!product) return <p>Product not found</p>
@@ -58,6 +88,14 @@ const SectionProduct = () => {
 
     return (
         <div className='main-container-product'>
+            {/**Cart drawer  */}
+
+            <CartDrawer 
+                isOpen={isCartOpen}
+                onClose={() => setIsCartOpen(false)}
+                items={cart}
+            />  
+
             <section className='section-container-product'>
                 {/*contianer of photo and photos to ptroduct */}
                 <div className="container-images">
@@ -132,7 +170,12 @@ const SectionProduct = () => {
                             </button>
                         </div>
 
-                        <Button variant='add-to-cart'> Addd to cart </Button>
+                        <Button 
+                            onClick={() => addCartProduct(product)}
+                            variant='add-to-cart' 
+                            > 
+                            Addd to cart 
+                        </Button>
 
                     </div>
 
