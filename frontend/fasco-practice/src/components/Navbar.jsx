@@ -8,6 +8,7 @@ const Navbar = () => {
     const pages = ["shop", "sign in"]
     
     const [ activeSection, setActiveSection ] = useState("Home");
+    const [ isMenu, setIsMenu ] = useState(false)
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -34,13 +35,17 @@ const Navbar = () => {
         return () => observer.disconnect()
     }, [])
 
+
+   
     return (
         <div className='navbar-container'>
             <nav className='navbar'>
-                <ul className='navbar-links'>
+                <ul className={`navbar-links ${isMenu ? 'active' : ''}`}  id="navMenu">
                     {sections.map((section) => (
                         <li key={section} className={activeSection === `section-${section.toLocaleLowerCase().replace(' ', '-')}` ? 'li-navbar-active' : 'li-navbar'}>
-                            <a href={section === "Home" ? '/' : `#section-${section.toLowerCase().replace(' ', '-')}`}>{section}</a>
+                            <a href={section === "Home" ? '/' : `#section-${section.toLowerCase().replace(' ', '-')}`} 
+                                onClick={() => setIsMenu(false)}
+                            >{section}</a>
                         </li>
                     ))}
                     {pages.map((page) => (
@@ -48,8 +53,17 @@ const Navbar = () => {
                             <Link className='li-link' to={page === "sign in" ? '/login' : `/${page}`}>{page.charAt(0).toUpperCase() + page.slice(1)}</Link>
                         </li>
                     ))}
+
+                    <Button variant="primary">Sign Up</Button>
                 </ul>
-                <Button variant="primary">Sign Up</Button>
+
+                <div className={`hamburguer ${isMenu ? 'active' : ''}`} id='hamburguer'
+                onClick={() => setIsMenu(!isMenu)}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
             </nav>
         </div>
         

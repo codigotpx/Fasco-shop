@@ -49,7 +49,7 @@ const Products = () => {
     const handleMore = () => {
       setVisibleCount(prev => prev + 6)
     }
-
+    
 
     if (loading) return <p>Loading products...</p>
     if (error) return <p>{error}</p>
@@ -81,7 +81,7 @@ const Products = () => {
                   <ChevronLeft size={16} />
                 </button>
 
-                <div>
+                <div className="contianer-button-paginations">
                   {[...Array(productsPages)].map((_, index) => {
                     const pageNumber = index + 1
                     return (

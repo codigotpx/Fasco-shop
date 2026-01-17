@@ -7,3 +7,12 @@
 
     flex-grow: 1;
 }
+
+@media screen and (max-width: 769px) {
+   .products-grid {
+        padding: 0;
+        gap: 7px;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+
+    } 
+}

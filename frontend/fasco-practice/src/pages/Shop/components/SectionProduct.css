@@ -261,3 +261,18 @@
 .logo-pay-methods {
     width: 50px;
 }
+
+@media screen and (max-width: 769px) {
+    .section-container-product {
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 0;
+    }
+    .container-images {
+        width: 100%;
+    }
+    .main-image {
+        width: 250px;
+        height: 370px;
+    }
+}

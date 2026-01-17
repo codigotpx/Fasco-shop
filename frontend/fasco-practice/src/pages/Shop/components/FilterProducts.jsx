@@ -1,7 +1,7 @@
 import './FilterProducts.css';
 import { useState } from 'react';
 
-const FilterProducts = () => {
+const FilterProducts = ({isOnfilter, isOffFilter}) => {
 
     const [ openSection, setOpenSection ] = useState({
         brands: true, 
@@ -68,7 +68,12 @@ const FilterProducts = () => {
 
 
     return (
-        <section className="container-filter-products">
+        <section className={`container-filter-products ${isOnfilter ? 'active' : ''}`}>
+            <div className='icon-close-filter'
+            onClick={isOffFilter}>
+                <span></span>
+                <span></span>
+            </div>
             <h3>Filter</h3>
             
             { /* Size Section */ }
@@ -88,7 +93,7 @@ const FilterProducts = () => {
             </div>
             <div className='container-section-filters'>
                 <h3 className='title-filter'>Colors</h3>
-                <div>
+                <div className='contianer-color-filter'>
                     {colors.map((color, idx) => (
                         <button
                             key={idx}

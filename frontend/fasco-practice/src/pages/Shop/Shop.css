@@ -14,3 +14,32 @@
 .container-products {
     width: 100%;
 }
+
+.contianer-filter-mobile {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.contianer-filter-mobile p {
+    font-size: 15px;
+}
+
+.contianer-filter-mobile .by-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contianer-filter-mobile .by-filter span {
+    font-size: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 769px) {
+    .contianer-filter-mobile {
+        display: flex;
+    }
+}

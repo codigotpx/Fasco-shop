@@ -117,3 +117,10 @@
     border-radius: 50px;
     font-size: 10px;
 }
+
+@media screen and (max-width: 769px){
+    .img-navbar-option {
+        width: 20px;
+        height: 20px;
+    }
+}

@@ -3,7 +3,7 @@
     flex-direction: column;
     top: 0;
     position: fixed;
-    right: -400px;
+    right: -100%;
     background-color: #fff;
     width: 400px;
     height: 100%;
@@ -107,4 +107,18 @@
     height: auto;
     overflow: auto;
     -webkit-overflow-scrolling: auto;
+}
+
+@media screen and (max-width: 769px) {
+    .cart-drawer-close {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .cart-drawer-open {
+        padding: 20px;
+        width: 90%;
+    }
+
+    
 }

@@ -94,3 +94,50 @@
 .container-filter-products .button-tags-filter:hover {
     text-decoration: underline;
 }
+
+.icon-close-filter {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 4px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.icon-close-filter span {
+    width: 25px;
+    height: 3px;
+    background: #000;
+}
+
+.icon-close-filter span:first-child {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.icon-close-filter span:last-child {
+    transform: rotate(-45deg);
+}
+
+
+
+@media screen and (max-width: 769px){
+    .icon-close-filter {
+        display: flex;
+    }
+
+    .container-filter-products {
+        width: 90%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 100%;
+        padding: 20px;
+        transition: top 0.3s ease;
+    }
+
+    .container-filter-products.active {
+        top: 0;
+        z-index: 10000;
+    }
+}

@@ -125,3 +125,30 @@
     justify-content: center;
     align-items: center;
 }
+
+.link-buy-now {
+    padding: 14px 45px;
+    height: auto;
+    margin: 0 auto;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+    font-size: 13px;
+}
+
+@media screen and (max-width: 769px) {
+    .section-1, .section-2, .section-3, .section-5 {
+        display: none;
+    }
+    
+    .first-home-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+
+}

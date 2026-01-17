@@ -3,18 +3,21 @@ import { Link } from 'react-router'
 import './NavbarShop.css'
 import { useLocation } from 'react-router'
 import { useCart } from './CartContext.jsx'
+import { useState } from 'react'
 
 const NavbarShop = () => {
     const Location = useLocation()
     const { setIsCartOpen, cart } = useCart()
+    const [ isMobile, setIsMobile ] = useState(false)
 
     
     return (
         <div className='navbar-shop-container'>
             <nav className='navbar'>
-                <ul className='navbar-links'>
+                <ul className={`navbar-links ${isMobile ? 'active' : ''}`}>
                     <li className='li-navbar' ><Link to='/'>Home</Link></li>
-                    <li className={Location.pathname.startsWith('/shop') ? 'li-navbar-active' : 'li-navbar'} ><Link to='#'>Shop</Link></li>
+                    <li className={Location.pathname.startsWith('/shop') ? 'li-navbar-active' : 'li-navbar'} ><Link to='/shop'
+                    onClick={() => setIsMobile(false)}>Shop</Link></li>
                     <li className={Location.pathname.includes('/product') ? 'li-navbar-active' : 'li-navbar'} ><Link to='#'>Products</Link></li>
                     <li className='li-navbar' ><Link to='#'>Pages</Link></li>
                 </ul>
@@ -30,6 +33,13 @@ const NavbarShop = () => {
                         </button>
                     </li>
                 </ul>
+
+                <div className={`hamburguer ${isMobile ? 'active' : ''}`} id='hamburguer'
+                    onClick={() => setIsMobile(!isMobile)}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </div>
         

@@ -35,3 +35,13 @@
     font-size: 20px;
     color: #000;
 }
+
+@media screen and (max-width: 769px) {
+    .img-login {
+        display: none;
+    }
+
+    .container-form {
+        border: none;
+    }
+}

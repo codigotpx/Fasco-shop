@@ -1,5 +1,5 @@
 import './SectionDeals.css'
-import Button from '../../../components/Buttons/Button'
+import { Link } from 'react-router'
 import  CountDown from '../../../components/Accountant/CountDown.jsx'
 import DealsSlider from '../../../components/Slider/dealsSlider.jsx'
 import imageDeals from '../../../assets/img-deals.png'
@@ -24,7 +24,9 @@ const SectionDeals = () => {
                          These styles move fast—and once they’re gone, they’re gone for good. Refresh your wardrobe without breaking the bank!.
                     </p>
 
-                    <Button className='btn-section-deals' variant='primary'>Buy Now</Button>
+                    <Link to='/shop' className='link-buy-now-deals' variant="primary">
+                                Buy Now
+                            </Link>
                     <section className='section-counter-container'>
                         <p className='text-counter-container' >Hurry, Before it's Too Late!</p>
                         <CountDown targetDate="2026-12-01T00:00:00" />

@@ -50,3 +50,15 @@
 .btn-sub {
     margin: 30px auto;
 }
+
+@media screen and (max-width: 769px) {
+    .image-sub {
+        display: none;
+    }
+
+    .title-sub {
+        line-height: normal;
+    }
+    
+
+}

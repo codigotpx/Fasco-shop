@@ -93,5 +93,77 @@ a {
     color : #484848;
 }
 
+.hamburguer {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburguer span {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+
+
+@media screen and (max-width: 769px) {
+
+    .hamburguer {
+        display: flex;
+    }
+    .navbar-container {
+        margin: 0 0 0 auto;
+        width: 0;
+    }
+
+    .navbar-links {
+        position: fixed;
+        top: 30px;
+        right: -100%;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        transition: rigth 0.3s ease;
+        padding: 20px 0;
+        gap: 0;
+        box-shadow: 0 10px 27px rgba(64, 64, 64, 0.3);
+    }
+
+    .navbar-links.active {
+        background-color: rgba(243, 242, 242, 0.5); 
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px); 
+        transition: right 0.3s ease;
+        height: 100%;
+        right: 0;
+    }
+
+    .navbar-links li {
+        border-top: 1px solid #484848;
+        width: 100%;
+    }
+
+    .navbar-links li:last-child {
+        border-bottom: 1px solid #000;
+    }
+
+    .hamburguer.active span:first-child{
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburguer.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+
+    .hamburguer.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+}
+
 
 

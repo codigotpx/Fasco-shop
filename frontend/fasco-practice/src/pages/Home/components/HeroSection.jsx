@@ -3,7 +3,7 @@ import photo2 from '../../../assets/photo2.png'
 import photo3 from '../../../assets/photo3.png'
 import photo4 from '../../../assets/photo4.png'
 import './HeroSection.css'
-import Button from '../../../components/Buttons/Button'
+import { Link } from 'react-router'
 import logoChanel from '../../../assets/logo-chanel.png'
 import logoCalvinKlein from '../../../assets/logo-calvin-klein.png'
 import logoDenim from '../../../assets/logo-denim.png'
@@ -54,9 +54,9 @@ const HeroSection = () => {
                             </span>
                             </p>
 
-                            <Button variant="primary">
+                            <Link to='/shop' className='link-buy-now' variant="primary">
                                 SHOP NOW
-                            </Button>
+                            </Link>
                         </div>
                     </div>
                     <div className='section-5'>

@@ -13,6 +13,7 @@ const DealsSlider = ({photos}) => {
             <Swiper
                     slidesPerView = 'auto'
                     spaceBetween={10}
+                    autoplay={false}
                     slideToClickedSlide={true}
                     centeredSlides={true}
                     pagination={{
