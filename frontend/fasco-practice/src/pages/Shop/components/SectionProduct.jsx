@@ -116,7 +116,10 @@ const SectionProduct = () => {
                 {/*Container of content about products */}
                 <div className="contianer-details-product">
                     <h6>FASCO</h6>
-                    <h3 className="title-product">{product.title}</h3>
+                    <h3 className="title-product">
+                        {product.title}
+                        <img className='icon-star' width={25} src="/star-regular-full.svg" alt="" />
+                    </h3>
                     {/**Contianer to rating of each product */}
                     <div className="rating-wrapper">
                         <div className="stars-outer">
