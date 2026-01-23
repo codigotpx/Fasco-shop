@@ -1,10 +1,15 @@
 import '../styles/Navbar.css';
 import { Link } from 'react-router'
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
+import { useAuth } from "../context/AuthContext.jsx"
+import AccountSection from './AccountSection.jsx';
+import { useNavbar } from '../context/NavbarContext.jsx';
 
 const Navbar = () => {
+
+    const { user } = useAuth()
     const sections = ["Home", "Deals", "New Arrivals"];
-    const pages = ["shop", "sign in"]
+    const { isUserOpen, setIsUserOpen } = useNavbar()
     
     const [ activeSection, setActiveSection ] = useState("Home");
     const [ isMenu, setIsMenu ] = useState(false)
@@ -34,7 +39,6 @@ const Navbar = () => {
         return () => observer.disconnect()
     }, [])
 
-
    
     return (
         <div className='navbar-container'>
@@ -47,13 +51,31 @@ const Navbar = () => {
                             >{section}</a>
                         </li>
                     ))}
-                    {pages.map((page) => (
-                        <li key={page} className='li-navbar'>
-                            <Link className='li-link' to={page === "sign in" ? '/login' : `/${page}`}>{page.charAt(0).toUpperCase() + page.slice(1)}</Link>
-                        </li>
-                    ))}
+                    
+                    <li className='li-navbar'>
+                        <Link className='li-link' to="/shop">Shop</Link>
+                    </li>
 
-                    <Link to="/register" className='link-buy-now'>Sign up</Link>
+                    {user? 
+                        <div className='container-acocount-home' onClick={() => setIsUserOpen(!isUserOpen)}>
+                            <img className='img-login-logout' width={15} src='/account.svg'/>
+                            {user.name} {user.lasname}
+
+                            <div>
+                                <AccountSection/>
+                            </div>
+                        </div>
+                    :
+                        <div className='container-login-logout'>
+                            <li className='li-navbar'>
+                                <Link className='li-link' to="/login">Sign in</Link>
+                            </li>
+
+                            <Link to="/register" className='link-buy-now'>Sign up</Link>  
+                        </div>
+                    }
+                   
+                     
                 </ul>
 
                 <div className={`hamburguer ${isMenu ? 'active' : ''}`} id='hamburguer'

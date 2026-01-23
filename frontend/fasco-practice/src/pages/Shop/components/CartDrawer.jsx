@@ -1,9 +1,9 @@
 import './CartDrawer.css'
-import { useCart } from './CartContext.jsx' // Importamos el contexto
+import { useNavbar } from '../../../context/NavbarContext.jsx' 
 import Button from '../../../components/Buttons/Button.jsx'
 
 const CartDrawer = ({ isOpen, onClose, items }) => {
-    const { setCart } = useCart() // Obtenemos la función para actualizar el carrito
+    const { setCart } = useNavbar() 
     const moneyFreeShipping = 100
 
     // CÁLCULO CORRECTO DEL TOTAL

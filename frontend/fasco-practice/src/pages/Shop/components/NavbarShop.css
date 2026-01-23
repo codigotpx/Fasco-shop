@@ -16,6 +16,7 @@
     margin: 0 auto;
 }
 .navbar-ul-option {
+    position: relative;
     display: flex;
     list-style: none;
     gap: 10px;

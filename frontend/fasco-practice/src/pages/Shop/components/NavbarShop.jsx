@@ -2,13 +2,16 @@
 import { Link } from 'react-router'
 import './NavbarShop.css'
 import { useLocation } from 'react-router'
-import { useCart } from './CartContext.jsx'
+import { useNavbar } from '../../../context/NavbarContext'
 import { useState } from 'react'
+import AccountSection from '../../../components/AccountSection.jsx'
 
 const NavbarShop = () => {
     const Location = useLocation()
-    const { setIsCartOpen, cart } = useCart()
+    const { setIsCartOpen, cart, isUserOpen, setIsUserOpen } = useNavbar()
     const [ isMobile, setIsMobile ] = useState(false)
+
+    
 
     
     return (
@@ -23,7 +26,9 @@ const NavbarShop = () => {
                 </ul>
                 <ul className='navbar-ul-option'>
                     <li><button className='buttom-navbar-option'><img className='img-navbar-option' src="/search.svg" alt="" /></button></li>
-                    <li><button className='buttom-navbar-option'><img className='img-navbar-option' src="/account.svg" alt="" /></button></li>
+                    <li><button className='buttom-navbar-option' onClick={() => setIsUserOpen(!isUserOpen)}>
+                        <img className='img-navbar-option' src="/account.svg" alt="" />
+                        </button></li>
                     <li><button className='buttom-navbar-option'><img className='img-navbar-option' src="/wishlist.svg" alt="" /></button></li>
                     <li><button 
                             onClick={() => setIsCartOpen(true)}
@@ -32,6 +37,8 @@ const NavbarShop = () => {
                             {cart.length !== 0 ? <span className='span-to-number-cart' >{`${cart.length}`}</span> : ''}
                         </button>
                     </li>
+                    {isUserOpen? <AccountSection/> : ''}
+                    
                 </ul>
 
                 <div className={`hamburguer ${isMobile ? 'active' : ''}`} id='hamburguer'

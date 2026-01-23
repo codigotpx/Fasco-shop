@@ -10,6 +10,7 @@ import Register from './pages/auth/Register.jsx'
 import ForgetPassword from './pages/auth/ForgetPassword.jsx'
 import Shop from './pages/Shop/Shop.jsx'
 import SectionProduct from './pages/Shop/components/SectionProduct.jsx'
+import { AuthProvider } from './context/AuthContext.jsx'
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider> 
   </StrictMode>
 )

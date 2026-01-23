@@ -10,7 +10,7 @@ import visa from '../../../assets/visa.png'
 import SectionDeals from '../../Home/components/SectionDeals.jsx'
 import SubscribeSection from '../../Home/components/SubscribeSection.jsx'
 import CartDrawer from './CartDrawer.jsx'
-import { useCart } from './CartContext.jsx'
+import { useNavbar } from '../../../context/NavbarContext.jsx'
 
 const SectionProduct = () => {
 
@@ -21,7 +21,7 @@ const SectionProduct = () => {
     const [ size, setSize ] = useState("M")
     const [ addProduct, setAddProduct ] = useState(0)
 
-    const { isCartOpen, setIsCartOpen, cart, setCart } = useCart()
+    const { isCartOpen, setIsCartOpen, cart, setCart } = useNavbar()
 
     const sizes =  [ "M" ,"L", "XL", "XXL"]
 

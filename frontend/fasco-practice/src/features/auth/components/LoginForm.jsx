@@ -4,19 +4,20 @@ import logoGoogle from '../../../assets/logo-google.png'
 import logoGmail from '../../../assets/logo-gmail.png'
 import { Link } from 'react-router'
 import { useState } from 'react'
-import { Login } from '../services/authService.js'
+import { useAuth } from '../../../context/AuthContext.jsx'
 
 
 const LoginForm = () => {
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
+    const { login } = useAuth()
     const [ error, setError ] = useState("")
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const data = await Login({ email, password })
+            const data = await login( email, password )
 
             console.log("Login successfuly", data)
 

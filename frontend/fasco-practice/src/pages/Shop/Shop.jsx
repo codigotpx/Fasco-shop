@@ -2,13 +2,13 @@ import './Shop.css';
 import FilterProducts from './components/FilterProducts';
 import Products from '../Products/Products.jsx'
 import SubscribeSection from '../../pages/Home/components/SubscribeSection.jsx'
-import { useCart } from './components/CartContext.jsx';
+import { useNavbar } from '../../context/NavbarContext.jsx'
 import CartDrawer from './components/CartDrawer.jsx';
 import { useState } from 'react';
 
 const Shop = () => {
 
-    const { isCartOpen, setIsCartOpen, cart} = useCart()
+    const { isCartOpen, setIsCartOpen, cart} = useNavbar()
     const [ isOnfilter, SetIsOnFilter ] = useState(false)
 
  return (

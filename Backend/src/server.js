@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser"
+import helmet from 'helmet'
 import authRoutes from "./routers/auth.routes.js";
 import dotenv from "dotenv";
 
@@ -7,38 +9,16 @@ dotenv.config();
 
 const app = express();
 
-/* ======================
-   CORS CONFIG
-====================== */
+app.use(helmet())
 
-const allowedOrigins = [
-  "http://localhost:5173",
-];
+app.use(cors({
+  origin: process.env.FRONTEND_URL || "http://localhost:5173",
+  credentials: true 
+}))
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Permite Postman y requests sin origin
-      if (!origin) return callback(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
-
-/* ======================
-   MIDDLEWARES
-====================== */
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser())
 
 /* ======================
    ROUTES

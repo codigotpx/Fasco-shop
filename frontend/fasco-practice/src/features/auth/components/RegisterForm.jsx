@@ -4,9 +4,11 @@ import logoGmail from '../../../assets/logo-gmail.png'
 import Button from '../../../components/Buttons/Button.jsx'
 import { useState } from 'react'
 import { Link } from 'react-router'
-import { Register } from '../services/authService.js'
+import { useAuth } from '../../../context/AuthContext.jsx'
 
 const RegisterForm = () => {
+    const { register } = useAuth()
+
     const [ name, setName ] = useState("")
     const [ lasName, setLasName ] = useState("")
     const [ email, setEmail ] = useState("")
@@ -23,8 +25,10 @@ const RegisterForm = () => {
         }
 
         try {
-            const data = await Register({name, lasName, phoneNumber, email, password })
+            const userData = {name, lasName, phoneNumber, email, password}
+            const data = await register(userData)
 
+            console.log("login successful", data)
 
         } catch (err) {
             setError(err.message)

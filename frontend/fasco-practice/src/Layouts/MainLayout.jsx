@@ -2,11 +2,11 @@ import { Outlet  } from 'react-router';
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
 import '../styles/Layout.css'
-import { CartProvider } from '../pages/Shop/components/CartContext.jsx';
+import { NavbarProvider } from '../context/NavbarContext.jsx';
 
 const MainLayout = () => {
     return (
-        <CartProvider>
+        <NavbarProvider>
             <div className='layout-container'>
                 <div className='container-element'> 
                     <Header />
@@ -16,7 +16,7 @@ const MainLayout = () => {
                     <Footer />
                 </div>
             </div>
-        </CartProvider>
+        </NavbarProvider>
     )
 }
 

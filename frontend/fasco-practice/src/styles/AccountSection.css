@@ -1,0 +1,44 @@
+.container-acount-section {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    margin: 20px 0 0 0;
+    padding: 0 20px 20px 20px;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 15px;
+}
+
+.container-acount-section-disable{
+    display: none;
+}
+.container-acount-section .ul-li-account {
+    margin: 0;
+    padding: 0;
+}
+
+.container-acount-section li{
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   text-decoration: none;
+   list-style: none;
+}
+
+.container-acount-section li a {
+    margin: 1px auto;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.container-acount-section li a:hover{
+    border-radius: 5px;
+    color: #fff;
+   background-color: #8A8A8A;
+}
+
+
