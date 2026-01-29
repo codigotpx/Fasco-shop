@@ -2,35 +2,14 @@ import './CartDrawer.css'
 import { useNavbar } from '../../../context/NavbarContext.jsx' 
 import Button from '../../../components/Buttons/Button.jsx'
 
-const CartDrawer = ({ isOpen, onClose, items }) => {
-    const { setCart } = useNavbar() 
+const CartDrawer = ({ isOpen, onClose}) => {
+    const { updateQuantity, cart } = useNavbar() 
     const moneyFreeShipping = 100
 
-    // CÁLCULO CORRECTO DEL TOTAL
-    const totalInCart = items.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+
+    const totalInCart = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
     const remainingMoney = Math.ceil(moneyFreeShipping - totalInCart)
 
-    // FUNCIÓN PARA ACTUALIZAR CANTIDAD
-    const updateQuantity = (id, delta) => {
-        const itemUpdate = items.find(item => item.id === id)
-        const nextQuantity = itemUpdate.quantity + delta
-
-        if (nextQuantity < 1) {
-            const confimed = window.confirm("Do you want to remove this product from your cart?")
-
-            if(confimed) {
-                const filterCart = items.filter(item => item.id !== id)
-                setCart(filterCart)
-            }
-        } else{
-            const updateItem = items.map(item => item.id === id ? 
-                {...item, quantity: nextQuantity} : item
-            )
-
-            setCart(updateItem)
-        }
-
-    }
 
     return (
         <div className={isOpen ? 'cart-drawer-open' : 'cart-drawer-close'} id="card-drawer">
@@ -46,7 +25,7 @@ const CartDrawer = ({ isOpen, onClose, items }) => {
                 More And Get <span className='span-cart'> Free Shipping</span>
             </p>
             <div className='contianer-product-cart'>
-                {items.map(item => (
+                {cart.map(item => (
                     <div key={item.id} className='product-in-cart'>
                         <img className='image-item' src={item.images[0]} alt={item.title} />
                         <div className='about-items'>

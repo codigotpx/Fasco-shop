@@ -5,10 +5,11 @@ import SubscribeSection from '../../pages/Home/components/SubscribeSection.jsx'
 import { useNavbar } from '../../context/NavbarContext.jsx'
 import CartDrawer from './components/CartDrawer.jsx';
 import { useState } from 'react';
+import WhiteListDrawer from "./components/WhitelistDrawer.jsx"
 
 const Shop = () => {
 
-    const { isCartOpen, setIsCartOpen, cart} = useNavbar()
+    const { isCartOpen, setIsCartOpen} = useNavbar()
     const [ isOnfilter, SetIsOnFilter ] = useState(false)
 
  return (
@@ -27,8 +28,10 @@ const Shop = () => {
         <CartDrawer 
                 isOpen={isCartOpen}
                 onClose={() => setIsCartOpen(false)}
-                items={cart}
-            />
+        />
+
+        <WhiteListDrawer
+        />   
         <div className='container-content'>
             <FilterProducts 
             isOnfilter={isOnfilter} 

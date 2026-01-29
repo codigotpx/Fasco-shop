@@ -8,11 +8,8 @@ import AccountSection from '../../../components/AccountSection.jsx'
 
 const NavbarShop = () => {
     const Location = useLocation()
-    const { setIsCartOpen, cart, isUserOpen, setIsUserOpen } = useNavbar()
+    const { setIsCartOpen, cart, isUserOpen, setIsUserOpen, isWishListOpen, setIsWishListOpen} = useNavbar()
     const [ isMobile, setIsMobile ] = useState(false)
-
-    
-
     
     return (
         <div className='navbar-shop-container'>
@@ -29,7 +26,11 @@ const NavbarShop = () => {
                     <li><button className='buttom-navbar-option' onClick={() => setIsUserOpen(!isUserOpen)}>
                         <img className='img-navbar-option' src="/account.svg" alt="" />
                         </button></li>
-                    <li><button className='buttom-navbar-option'><img className='img-navbar-option' src="/wishlist.svg" alt="" /></button></li>
+                    <li>
+                        <button className='buttom-navbar-option' onClick={() => setIsWishListOpen(!isWishListOpen)}>
+                            <img className='img-navbar-option' src="/wishlist.svg" alt="" />
+                        </button>
+                    </li>
                     <li><button 
                             onClick={() => setIsCartOpen(true)}
                             className='buttom-navbar-option-cart'><img className='img-navbar-option' src="/icon-shopping-car.svg" 

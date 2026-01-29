@@ -11,6 +11,7 @@ import SectionDeals from '../../Home/components/SectionDeals.jsx'
 import SubscribeSection from '../../Home/components/SubscribeSection.jsx'
 import CartDrawer from './CartDrawer.jsx'
 import { useNavbar } from '../../../context/NavbarContext.jsx'
+import WhiteListDrawer from './WhitelistDrawer.jsx'
 
 const SectionProduct = () => {
 
@@ -21,7 +22,7 @@ const SectionProduct = () => {
     const [ size, setSize ] = useState("M")
     const [ addProduct, setAddProduct ] = useState(0)
 
-    const { isCartOpen, setIsCartOpen, cart, setCart } = useNavbar()
+    const { isCartOpen, setIsCartOpen, cart, setCart, wishList, setWishList } = useNavbar()
 
     const sizes =  [ "M" ,"L", "XL", "XXL"]
 
@@ -43,6 +44,8 @@ const SectionProduct = () => {
         } 
         
     }
+
+    
     
 
     const addCartProduct = ( product ) => {
@@ -70,6 +73,15 @@ const SectionProduct = () => {
             setCart([...cart, productCart])
         }  
     }
+    
+    const addWishList = (product) => {
+
+        const isWishListAdded = wishList.find(item => (item.id === product.id))
+        
+        if (!isWishListAdded) {
+            setWishList([...wishList, product])
+        }
+    }
 
     if (loading) return <p>Loading...</p>
     if (!product) return <p>Product not found</p>
@@ -85,6 +97,8 @@ const SectionProduct = () => {
 
     const linePercentage = `${product.stock}%`
 
+    const isInWishList = wishList.some(item => item.id === product.id);
+
     return (
         <div className='main-container-product'>
             {/**Cart drawer  */}
@@ -92,8 +106,10 @@ const SectionProduct = () => {
             <CartDrawer 
                 isOpen={isCartOpen}
                 onClose={() => setIsCartOpen(false)}
-                items={cart}
             />  
+
+            <WhiteListDrawer
+            />
 
             <section className='section-container-product'>
                 {/*contianer of photo and photos to ptroduct */}
@@ -118,7 +134,7 @@ const SectionProduct = () => {
                     <h6>FASCO</h6>
                     <h3 className="title-product">
                         {product.title}
-                        <img className='icon-star' width={25} src="/star-regular-full.svg" alt="" />
+                        <img className='icon-star' width={25} src={isInWishList ? '/star-solid-full.svg' : '/star-regular-full.svg'} onClick={() => addWishList(product)} alt="" />
                     </h3>
                     {/**Contianer to rating of each product */}
                     <div className="rating-wrapper">
