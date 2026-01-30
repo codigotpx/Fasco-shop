@@ -35,7 +35,7 @@ const CartDrawer = ({ isOpen, onClose}) => {
                             <div className='container-button-add-remove-cart'>
                                 {/* BOTÓN RESTAR */}
                                 <button 
-                                    onClick={() => updateQuantity(item.id, -1)}
+                                    onClick={() => updateQuantity(item, -1)}
                                     className='button-add-remove-product-cart'>
                                     -
                                 </button>
@@ -46,7 +46,7 @@ const CartDrawer = ({ isOpen, onClose}) => {
 
                                 {/* BOTÓN SUMAR */}
                                 <button 
-                                    onClick={() => updateQuantity(item.id, 1)}
+                                    onClick={() => updateQuantity(item, 1)}
                                     className='button-add-remove-product-cart'>
                                     +
                                 </button>
