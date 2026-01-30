@@ -1,7 +1,7 @@
 import './SectionDeals.css'
 import { Link } from 'react-router'
 import  CountDown from '../../../components/Accountant/CountDown.jsx'
-import DealsSlider from '../../../components/Slider/dealsSlider.jsx'
+import DealsSlider from '../../../components/Slider/DealsSlider.jsx'
 import imageDeals from '../../../assets/img-deals.png'
 import imageDeals2 from '../../../assets/image-deals-2.png'
 import imageDeals3 from '../../../assets/img-deals-3.png'
