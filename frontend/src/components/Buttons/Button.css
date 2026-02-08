@@ -21,23 +21,16 @@
 }
 
 .btn-secondary {
-    background-coaccent-color);
-    border: solid;
-    border-width: 2px;
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
     border-radius: 5px;
-    border-color: var(--accent-color);
     padding: 7px 20px;
+    color: var(--accent-color);
 }
 
 .btn-secondary:hover {
     background-color: var(--accent-color);
-    color: var(--background)
-    color: var(--text-secondary);
-    border: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    border-color: var(--accent-color);
-    padding: 7px 20px;
+    color: var(--background);
 }
 
 .btn-load-more {
@@ -47,26 +40,23 @@
   font-size: 16px;
   font-weight: 500;
   transition: all 0.3s ease;
+  border: 2px solid var(--text-secondary);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
 }
 
 .btn-load-more:hover {
     opacity: 0.9;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  backgrou2px solid var(--text-secondary);
-  cursor: pointer;
-  background: transparent;
-  color: var(--text-secondary);
-  font-weight: 500;
-  transition: all 0.3s ease;
 }
 
 .btn-add-to-cart:hover {
     background: var(--text-secondary);
-    color: var(--background
+    color: var(--background);
+}
+
 .btn-add-to-cart {
   display: flex;
   justify-content: center;
